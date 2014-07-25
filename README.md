@@ -41,7 +41,7 @@ Example invocations:
     (session-token:make-generator)
 	(session-token:make-generator :token-length 64)
 	(session-token:make-generator :alphabet "0123456789abcdef")
-	(session-token:make-generator :initial-seed (isaac:init-kernel-seed) :token-length 64 :alphabet "0123456789abcdef")
+	(session-token:make-generator :initial-seed (cl-isaac:init-kernel-seed) :token-length 64 :alphabet "0123456789abcdef")
 
 Example use:
 
@@ -49,13 +49,13 @@ Example use:
     GENERATOR
     SESSION-TOKEN> (funcall generator)
     "iyyiGgbALDzVCC7qX27oXR7pP89ZKOqy"
-    SESSION-TOKEN> (funcall generator (isaac:init-kernel-seed))
+    SESSION-TOKEN> (funcall generator (cl-isaac:init-kernel-seed))
     "WdUBwtFG9sT49pEgkb3qTqiK2FzmYefm" ;; generated with the new seed
     SESSION-TOKEN>
 
 ##### `char-range`
 
-takes a series of range terms and additional keyword arguments for additional specifc chars to be added or excluded.
+takes a series of range terms and additional keyword arguments for specifc extra chars to be added or excluded.
 
 - `:not` can be a list/vector/string of characters that will be filtered from the final result
 - `:plus` can be a list/vector/string of characters that will be added to the final result
