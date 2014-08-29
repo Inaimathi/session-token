@@ -1,7 +1,7 @@
 # Session Token
 ###### A simple CPRNG-powered session token generator
 
-This implementation cribs heavily from [Doug Hoyte's](https://github.com/hoytech) Perl-implemented [Session::Token](https://github.com/hoytech/Session-Token), and it uses his [Common Lisp ISAAC](http://hcsw.org/downloads/isaac.lisp) implementation (packaged [here](https://github.com/Inaimathi/isaac) and [here](http://asdf.inaimathi.ca/isaac.tar.gz)).
+This implementation cribs heavily from [Doug Hoyte's](https://github.com/hoytech) Perl-implemented [Session::Token](https://github.com/hoytech/Session-Token), and it uses his [Common Lisp ISAAC](http://hcsw.org/downloads/isaac.lisp) implementation (packaged [here](https://github.com/thephoeron/cl-isaac) and [here](https://github.com/Inaimathi/isaac); the first of these is available via `quicklisp`).
 
 ### Quick Start
 
@@ -28,7 +28,7 @@ This implementation cribs heavily from [Doug Hoyte's](https://github.com/hoytech
 
 The default generator creates 32-character long base 62 (`a-z`,`A-Z`,`0-9`) tokens and seeds itself with `(isaac:init-kernel-seed)` (which won't work on Windows because it pulls from `/dev/urandom` or `/dev/arandom`).
 
-##### `main-generator`
+##### `make-generator`
 
 takes three keyword arguments that let you specify its alphabet, token length and initial seed. Returns a closure that returns the next generated token (and can optionally be re-initialized with a new seed).
 
